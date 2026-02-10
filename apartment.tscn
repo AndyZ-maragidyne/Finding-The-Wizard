@@ -1,0 +1,111 @@
+[gd_scene load_steps=18 format=3 uid="uid://dn3oigwv4536o"]
+
+[ext_resource type="Script" path="res://apartment.gd" id="1_cof1y"]
+[ext_resource type="Texture2D" uid="uid://bduvq44hwpueg" path="res://ink files/AptmentEnviroBg_Better.png" id="2_y8v1c"]
+[ext_resource type="PackedScene" uid="uid://bbpcgn46u5fwb" path="res://recipeMenu.tscn" id="3_a4f65"]
+[ext_resource type="Texture2D" uid="uid://k1jfxvajpxyj" path="res://ink files/arrow.png" id="3_nnavm"]
+[ext_resource type="Texture2D" uid="uid://c84r57jvllnsp" path="res://Items/water spirit.png" id="4_2a55k"]
+[ext_resource type="Script" path="res://waterSpell.gd" id="4_fjx0w"]
+[ext_resource type="Script" path="res://evidence.gd" id="4_wuu2r"]
+[ext_resource type="Script" path="res://overgrowthSpell.gd" id="5_is768"]
+[ext_resource type="Texture2D" uid="uid://ds3lmw7v3r10w" path="res://magic weeds_FIXED.png" id="7_r6mmj"]
+[ext_resource type="Texture2D" uid="uid://eqsd8mfrg47x" path="res://Items/magenta ink bottle.png" id="8_huttf"]
+[ext_resource type="Texture2D" uid="uid://c5h8qsm11kaw4" path="res://Items/3_ milk bottle.png" id="9_pijqr"]
+[ext_resource type="PackedScene" uid="uid://dep6nw86hlrla" path="res://inventory.tscn" id="12_4w4xo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sho5m"]
+size = Vector2(65, 69.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smh8t"]
+size = Vector2(34, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0hk6"]
+size = Vector2(51, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smcts"]
+size = Vector2(52, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hygb"]
+size = Vector2(26, 51.5)
+
+[node name="apartment" type="Node2D"]
+script = ExtResource("1_cof1y")
+
+[node name="AptmentEnviroBg" type="Sprite2D" parent="."]
+position = Vector2(552, 337)
+texture = ExtResource("2_y8v1c")
+
+[node name="BackButton" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="BackButton"]
+position = Vector2(55, 598)
+rotation = 1.5708
+texture = ExtResource("3_nnavm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackButton"]
+position = Vector2(52.5, 598.375)
+shape = SubResource("RectangleShape2D_sho5m")
+one_way_collision_margin = 90.0
+
+[node name="Items" type="Node" parent="."]
+
+[node name="WaterElemental" type="Area2D" parent="Items"]
+position = Vector2(213, -233)
+script = ExtResource("4_fjx0w")
+
+[node name="Icon" type="Sprite2D" parent="Items/WaterElemental"]
+position = Vector2(574, 468)
+texture = ExtResource("4_2a55k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/WaterElemental"]
+position = Vector2(574, 468)
+shape = SubResource("RectangleShape2D_smh8t")
+
+[node name="MagicWeeds" type="Area2D" parent="Items"]
+position = Vector2(-532, -368)
+script = ExtResource("5_is768")
+
+[node name="Icon" type="Sprite2D" parent="Items/MagicWeeds"]
+position = Vector2(574, 468)
+texture = ExtResource("7_r6mmj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/MagicWeeds"]
+position = Vector2(573.5, 468)
+shape = SubResource("RectangleShape2D_k0hk6")
+
+[node name="MagentaInkBottle" type="Area2D" parent="Items"]
+position = Vector2(509, -405)
+script = ExtResource("4_wuu2r")
+MagentaInkBottle = true
+
+[node name="Icon" type="Sprite2D" parent="Items/MagentaInkBottle"]
+position = Vector2(574, 468)
+texture = ExtResource("8_huttf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/MagentaInkBottle"]
+position = Vector2(574, 467)
+shape = SubResource("RectangleShape2D_smcts")
+
+[node name="MilkBottle" type="Area2D" parent="Items"]
+position = Vector2(364, -354)
+script = ExtResource("4_wuu2r")
+MilkBottle = true
+
+[node name="Icon" type="Sprite2D" parent="Items/MilkBottle"]
+position = Vector2(574, 468)
+texture = ExtResource("9_pijqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/MilkBottle"]
+position = Vector2(568, 467.25)
+shape = SubResource("RectangleShape2D_7hygb")
+
+[node name="Recipe_Menu" parent="." instance=ExtResource("3_a4f65")]
+visible = false
+
+[node name="Inventory" parent="." instance=ExtResource("12_4w4xo")]
+
+[connection signal="input_event" from="BackButton" to="." method="_on_back_button_input_event"]
+[connection signal="input_event" from="Items/WaterElemental" to="Items/WaterElemental" method="_on_input_event"]
+[connection signal="input_event" from="Items/MagicWeeds" to="Items/MagicWeeds" method="_on_input_event"]
+[connection signal="input_event" from="Items/MagentaInkBottle" to="Items/MagentaInkBottle" method="_on_input_event"]
+[connection signal="input_event" from="Items/MilkBottle" to="Items/MilkBottle" method="_on_input_event"]

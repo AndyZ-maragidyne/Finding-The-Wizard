@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://y65o0bb41gnc"
+path="res://.godot/imported/Minotaur.ink-a0be037fc4f08948b020d498054f7353.res"
+
+[deps]
+
+source_file="res://ink files/Minotaur.ink"
+dest_files=["res://.godot/imported/Minotaur.ink-a0be037fc4f08948b020d498054f7353.res"]
+
+[params]
+
+is_main_file=false
+compress=true

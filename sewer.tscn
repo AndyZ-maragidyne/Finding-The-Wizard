@@ -1,0 +1,122 @@
+[gd_scene load_steps=18 format=3 uid="uid://dw6eldgj4b3ok"]
+
+[ext_resource type="Script" path="res://sewer.gd" id="1_h0bdu"]
+[ext_resource type="Texture2D" uid="uid://d2678me6e1nyg" path="res://ink files/SewerEnviroBg_Better.png" id="2_8p8vq"]
+[ext_resource type="Texture2D" uid="uid://k1jfxvajpxyj" path="res://ink files/arrow.png" id="3_firqj"]
+[ext_resource type="PackedScene" uid="uid://bbpcgn46u5fwb" path="res://recipeMenu.tscn" id="3_sira2"]
+[ext_resource type="Texture2D" uid="uid://2paxur1fcc0c" path="res://Items/bat wing.png" id="4_ow1hv"]
+[ext_resource type="Script" path="res://overgrowthSpell.gd" id="4_tl5cq"]
+[ext_resource type="Script" path="res://waterSpell.gd" id="5_o534a"]
+[ext_resource type="Texture2D" uid="uid://b3pydvyxuvene" path="res://Items/green goo.png" id="6_ujiuk"]
+[ext_resource type="Script" path="res://wyvern.gd" id="8_acwu0"]
+[ext_resource type="Texture2D" uid="uid://chkxbswol1b3m" path="res://ink files/wyvernSprite.png" id="9_e2541"]
+[ext_resource type="PackedScene" uid="uid://dep6nw86hlrla" path="res://inventory.tscn" id="9_f16qd"]
+[ext_resource type="FontFile" uid="uid://q2fqiyjs0ege" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="10_8ion8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1japa"]
+size = Vector2(60.5, 56.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcql6"]
+size = Vector2(53, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwnpj"]
+size = Vector2(53, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qasjl"]
+size = Vector2(62.25, 56.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nstkx"]
+size = Vector2(579.167, 587.5)
+
+[node name="sewer" type="Node2D"]
+script = ExtResource("1_h0bdu")
+
+[node name="SewerEnviroBg" type="Sprite2D" parent="."]
+position = Vector2(599, 337)
+texture = ExtResource("2_8p8vq")
+
+[node name="BackButton" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="BackButton"]
+position = Vector2(142, 76)
+rotation = 3.14159
+texture = ExtResource("3_firqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackButton"]
+position = Vector2(141, 72)
+shape = SubResource("RectangleShape2D_1japa")
+
+[node name="Items" type="Node" parent="."]
+
+[node name="BatWing" type="Area2D" parent="Items"]
+visible = false
+position = Vector2(-240, -249)
+script = ExtResource("4_tl5cq")
+magicWeeds = false
+
+[node name="Icon" type="Sprite2D" parent="Items/BatWing"]
+position = Vector2(1306, 654)
+texture = ExtResource("4_ow1hv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/BatWing"]
+position = Vector2(1303, 650)
+shape = SubResource("RectangleShape2D_vcql6")
+
+[node name="GreenGoo" type="Area2D" parent="Items"]
+visible = false
+position = Vector2(-42, -438)
+script = ExtResource("5_o534a")
+waterElemental = false
+
+[node name="Icon" type="Sprite2D" parent="Items/GreenGoo"]
+position = Vector2(965, 641)
+texture = ExtResource("6_ujiuk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/GreenGoo"]
+position = Vector2(964, 639)
+shape = SubResource("RectangleShape2D_kwnpj")
+
+[node name="sewer2" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="sewer2"]
+position = Vector2(621, 615)
+texture = ExtResource("3_firqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sewer2"]
+position = Vector2(621.875, 618.375)
+shape = SubResource("RectangleShape2D_qasjl")
+
+[node name="Wyvern" type="Area2D" parent="."]
+position = Vector2(695, 289)
+scale = Vector2(0.48, 0.48)
+script = ExtResource("8_acwu0")
+
+[node name="Faerie" type="Sprite2D" parent="Wyvern"]
+scale = Vector2(2.39, 2.39)
+texture = ExtResource("9_e2541")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wyvern"]
+position = Vector2(12.4999, 20.8333)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nstkx")
+
+[node name="Label" type="Label" parent="Wyvern"]
+visible = false
+offset_left = -575.0
+offset_top = -289.583
+offset_right = 717.0
+offset_bottom = -139.583
+theme_override_fonts/font = ExtResource("10_8ion8")
+theme_override_font_sizes/font_size = 50
+text = "You need an ice stasis spell to defeat this enemy"
+
+[node name="Recipe_Menu" parent="." instance=ExtResource("3_sira2")]
+visible = false
+
+[node name="Inventory" parent="." instance=ExtResource("9_f16qd")]
+
+[connection signal="input_event" from="BackButton" to="." method="_on_back_button_input_event"]
+[connection signal="input_event" from="Items/BatWing" to="Items/BatWing" method="_on_input_event"]
+[connection signal="input_event" from="Items/GreenGoo" to="Items/GreenGoo" method="_on_input_event"]
+[connection signal="input_event" from="sewer2" to="." method="_on_sewer_2_input_event"]
+[connection signal="input_event" from="Wyvern" to="Wyvern" method="_on_input_event"]

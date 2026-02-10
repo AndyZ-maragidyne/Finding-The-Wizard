@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://dgbfwd8f160bo"
+path="res://.godot/imported/wyvern.ink-dc5096e2b8fcbe4ae99161c92acfa7c3.res"
+
+[deps]
+
+source_file="res://ink files/wyvern.ink"
+dest_files=["res://.godot/imported/wyvern.ink-dc5096e2b8fcbe4ae99161c92acfa7c3.res"]
+
+[params]
+
+is_main_file=false
+compress=true

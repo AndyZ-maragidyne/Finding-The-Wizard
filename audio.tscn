@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://boepta3errppw"]
+
+[ext_resource type="AudioStream" uid="uid://147hhl3xno0t" path="res://ink files/Quest Time.mp3" id="1_4230v"]
+[ext_resource type="Script" path="res://audio_stream_player_2d.gd" id="2_qef13"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_4230v")
+autoplay = true
+script = ExtResource("2_qef13")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]

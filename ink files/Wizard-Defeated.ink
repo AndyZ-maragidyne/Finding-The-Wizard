@@ -1,0 +1,4 @@
+"How could this be?! The last of my mana, gone. But how? You are a novice in every sense of the word. How you defeat one such as I, a great master of the arcane?"
+"Enough. Thank you apprentice, we'll take it from here."
+"Alakazam the Mischievous, you have the right to remain silent. You are being arrested for the following charges: Disturbing the natural order, taking an unauthorized apprentice, three counts of distribution of counterfeit mana crystals, eight documented counts of usage of living creatures as magical catalysts, two counts of resisting arrest, enslavement of endangered creatures, and grand theft dragon.
+* [close]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://b8fqa4prx8yvh"
+path="res://.godot/imported/Epilogue-Best.ink-1876c9cf7ec1193577114df9db8cb9a4.res"
+
+[deps]
+
+source_file="res://ink files/Epilogue-Best.ink"
+dest_files=["res://.godot/imported/Epilogue-Best.ink-1876c9cf7ec1193577114df9db8cb9a4.res"]
+
+[params]
+
+is_main_file=true
+compress=true

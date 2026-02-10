@@ -1,0 +1,110 @@
+[gd_scene load_steps=18 format=3 uid="uid://c7twyr64h60wm"]
+
+[ext_resource type="Script" path="res://store.gd" id="1_88hat"]
+[ext_resource type="Texture2D" uid="uid://cd04so7qnj51v" path="res://ink files/StoreEnviroBg_better.png" id="2_b1nq7"]
+[ext_resource type="PackedScene" uid="uid://bbpcgn46u5fwb" path="res://recipeMenu.tscn" id="3_a7wpv"]
+[ext_resource type="Texture2D" uid="uid://k1jfxvajpxyj" path="res://ink files/arrow.png" id="3_i2uwv"]
+[ext_resource type="Texture2D" uid="uid://3p4my4hm0plg" path="res://Items/spice trail.png" id="4_jj7x0"]
+[ext_resource type="Script" path="res://evidence.gd" id="4_ugpew"]
+[ext_resource type="Script" path="res://iceSpell.gd" id="5_fjii0"]
+[ext_resource type="Texture2D" uid="uid://ckhr81qvdi3xy" path="res://Items/mints.png" id="6_b7r21"]
+[ext_resource type="Script" path="res://fireSpell.gd" id="6_hire5"]
+[ext_resource type="Texture2D" uid="uid://bp0hrqpo40air" path="res://Items/sparkling water.png" id="7_3h0kn"]
+[ext_resource type="Texture2D" uid="uid://daq52hvtk6b8a" path="res://Items/hell pepper.png" id="9_e2l7n"]
+[ext_resource type="PackedScene" uid="uid://dep6nw86hlrla" path="res://inventory.tscn" id="12_no1f6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbyon"]
+size = Vector2(90, 79.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqo6e"]
+size = Vector2(49, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84tis"]
+size = Vector2(50, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db4sq"]
+size = Vector2(33, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l47l"]
+size = Vector2(52, 46.5)
+
+[node name="Store" type="Node2D"]
+script = ExtResource("1_88hat")
+
+[node name="StoreEnviroBg" type="Sprite2D" parent="."]
+position = Vector2(591, 311)
+texture = ExtResource("2_b1nq7")
+
+[node name="BackButton" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="BackButton"]
+position = Vector2(579, 606)
+scale = Vector2(1.35938, 1.35938)
+texture = ExtResource("3_i2uwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackButton"]
+position = Vector2(580, 610.375)
+shape = SubResource("RectangleShape2D_tbyon")
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Spice Trail" type="Area2D" parent="Items"]
+position = Vector2(-501, -236)
+script = ExtResource("4_ugpew")
+SpiceTrail = true
+
+[node name="Icon" type="Sprite2D" parent="Items/Spice Trail"]
+position = Vector2(574, 468)
+texture = ExtResource("4_jj7x0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Spice Trail"]
+position = Vector2(574.5, 475.5)
+shape = SubResource("RectangleShape2D_kqo6e")
+
+[node name="Mints" type="Area2D" parent="Items"]
+position = Vector2(65, -17)
+script = ExtResource("5_fjii0")
+sparklingWater = false
+
+[node name="Icon" type="Sprite2D" parent="Items/Mints"]
+position = Vector2(574, 468)
+texture = ExtResource("6_b7r21")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Mints"]
+position = Vector2(572, 471.5)
+shape = SubResource("RectangleShape2D_84tis")
+
+[node name="Sparkling Water" type="Area2D" parent="Items"]
+position = Vector2(247, -141)
+script = ExtResource("5_fjii0")
+
+[node name="Icon" type="Sprite2D" parent="Items/Sparkling Water"]
+position = Vector2(574, 468)
+texture = ExtResource("7_3h0kn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Sparkling Water"]
+position = Vector2(573.5, 468.5)
+shape = SubResource("RectangleShape2D_db4sq")
+
+[node name="Hell Pepper" type="Area2D" parent="Items"]
+position = Vector2(416, -137)
+script = ExtResource("6_hire5")
+
+[node name="Icon" type="Sprite2D" parent="Items/Hell Pepper"]
+position = Vector2(574, 468)
+texture = ExtResource("9_e2l7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Hell Pepper"]
+position = Vector2(574, 470.75)
+shape = SubResource("RectangleShape2D_8l47l")
+
+[node name="Recipe_Menu" parent="." instance=ExtResource("3_a7wpv")]
+visible = false
+
+[node name="Inventory" parent="." instance=ExtResource("12_no1f6")]
+
+[connection signal="input_event" from="BackButton" to="." method="_on_back_button_input_event"]
+[connection signal="input_event" from="Items/Spice Trail" to="Items/Spice Trail" method="_on_input_event"]
+[connection signal="input_event" from="Items/Mints" to="Items/Mints" method="_on_input_event"]
+[connection signal="input_event" from="Items/Sparkling Water" to="Items/Sparkling Water" method="_on_input_event"]
+[connection signal="input_event" from="Items/Hell Pepper" to="Items/Hell Pepper" method="_on_input_event"]

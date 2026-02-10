@@ -1,0 +1,149 @@
+[gd_scene load_steps=16 format=3 uid="uid://dep6nw86hlrla"]
+
+[ext_resource type="Script" path="res://inventory.gd" id="1_ckpu1"]
+[ext_resource type="Texture2D" uid="uid://dxrx2yrq2iwye" path="res://border.png" id="2_4khof"]
+[ext_resource type="Texture2D" uid="uid://ct5ibxcu25mk7" path="res://fireSpellBall.png" id="3_wk5vr"]
+[ext_resource type="Texture2D" uid="uid://bp0hrqpo40air" path="res://Items/sparkling water.png" id="4_22dcf"]
+[ext_resource type="Texture2D" uid="uid://by21lhlsf4858" path="res://iceSpellBall.png" id="4_ub5ot"]
+[ext_resource type="Texture2D" uid="uid://ckhr81qvdi3xy" path="res://Items/mints.png" id="5_33v3w"]
+[ext_resource type="Texture2D" uid="uid://66pekdngcjsn" path="res://windSpellBall.png" id="5_x51ew"]
+[ext_resource type="Texture2D" uid="uid://dxsk2uptbdyob" path="res://lightningSpellBall.png" id="6_oh2ow"]
+[ext_resource type="Texture2D" uid="uid://2paxur1fcc0c" path="res://Items/bat wing.png" id="6_v00dl"]
+[ext_resource type="Texture2D" uid="uid://ds3lmw7v3r10w" path="res://magic weeds_FIXED.png" id="7_fn3ew"]
+[ext_resource type="Texture2D" uid="uid://c84r57jvllnsp" path="res://Items/water spirit.png" id="8_ctkrm"]
+[ext_resource type="Texture2D" uid="uid://b3pydvyxuvene" path="res://Items/green goo.png" id="9_m0xh7"]
+[ext_resource type="Texture2D" uid="uid://daq52hvtk6b8a" path="res://Items/hell pepper.png" id="10_30umv"]
+[ext_resource type="Texture2D" uid="uid://dq8ktmdrcff3v" path="res://Items/matchbox.png" id="11_kxtty"]
+[ext_resource type="FontFile" uid="uid://q2fqiyjs0ege" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="15_6glv3"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_ckpu1")
+
+[node name="FireBall" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(663, 43)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="FireBall"]
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("3_wk5vr")
+
+[node name="IceStasis" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(453, 43)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="IceStasis"]
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("4_ub5ot")
+
+[node name="Overgrowth" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(523, 43)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="Overgrowth"]
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("5_x51ew")
+
+[node name="Water" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(593, 43)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="Water"]
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("6_oh2ow")
+
+[node name="SparlingWater" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(436, 94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="SparlingWater"]
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("4_22dcf")
+
+[node name="Mints" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(470, 94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="Mints"]
+position = Vector2(0.499995, -0.499995)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("5_33v3w")
+
+[node name="BatWing" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(506, 94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="BatWing"]
+position = Vector2(1.19209e-07, 1.19209e-07)
+scale = Vector2(1.16, 1.16)
+texture = ExtResource("6_v00dl")
+
+[node name="MagicWeeds" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(540, 94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="MagicWeeds"]
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("7_fn3ew")
+
+[node name="WaterElemental" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(576, 94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="WaterElemental"]
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("8_ctkrm")
+
+[node name="GreenGoo" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(610, 94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="GreenGoo"]
+position = Vector2(-0.00012207, 0)
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("9_m0xh7")
+
+[node name="HellPepper" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(646, 94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="HellPepper"]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("10_30umv")
+
+[node name="Matchbox" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(680, 94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4khof")
+
+[node name="Item" type="Sprite2D" parent="Matchbox"]
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("11_kxtty")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 306.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("15_6glv3")
+theme_override_font_sizes/font_size = 30
+text = "0 Evidence found"

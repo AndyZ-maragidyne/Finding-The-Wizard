@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://j4symv88nf6k"]
+
+[ext_resource type="Script" path="res://town.gd" id="1_73tpn"]
+[ext_resource type="Texture2D" uid="uid://k1jfxvajpxyj" path="res://ink files/arrow.png" id="3_ia4tm"]
+[ext_resource type="Script" path="res://cat.gd" id="3_kn5nn"]
+[ext_resource type="PackedScene" uid="uid://bbpcgn46u5fwb" path="res://recipeMenu.tscn" id="3_x6cy5"]
+[ext_resource type="PackedScene" uid="uid://cu5e7tx4dko22" path="res://dialogue.tscn" id="4_4n368"]
+[ext_resource type="Texture2D" uid="uid://b1653fgoj2b44" path="res://characters/cat_final.png" id="4_cku7i"]
+[ext_resource type="Resource" uid="uid://d4n1wvb5l7mjp" path="res://ink files/Ebineezer-Outside - Copy.ink" id="6_psc8n"]
+[ext_resource type="Texture2D" uid="uid://c7rfeji7vpni7" path="res://backgrounds/OpenEnviroBg_vers1.png" id="7_x4mdp"]
+[ext_resource type="FontFile" uid="uid://q2fqiyjs0ege" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="8_6pkfh"]
+[ext_resource type="PackedScene" uid="uid://dep6nw86hlrla" path="res://inventory.tscn" id="8_f6uab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieebj"]
+size = Vector2(446.25, 282.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyjnm"]
+size = Vector2(61.3125, 58.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch5wi"]
+size = Vector2(107.625, 64.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kqvx"]
+size = Vector2(512, 283)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbl0k"]
+size = Vector2(195, 106)
+
+[node name="Town" type="Node2D"]
+script = ExtResource("1_73tpn")
+
+[node name="OpenEnviroBgVers1" type="Sprite2D" parent="."]
+position = Vector2(591, 327)
+texture = ExtResource("7_x4mdp")
+
+[node name="Places" type="Node" parent="."]
+
+[node name="Apartment" type="Area2D" parent="Places"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Places/Apartment"]
+position = Vector2(232.875, 131.875)
+shape = SubResource("RectangleShape2D_ieebj")
+
+[node name="Forest" type="Area2D" parent="Places"]
+
+[node name="Icon" type="Sprite2D" parent="Places/Forest"]
+position = Vector2(501, 615)
+texture = ExtResource("3_ia4tm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Places/Forest"]
+position = Vector2(502, 617)
+shape = SubResource("RectangleShape2D_qyjnm")
+
+[node name="Sewer" type="Area2D" parent="Places"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Places/Sewer"]
+position = Vector2(361, 430)
+shape = SubResource("RectangleShape2D_ch5wi")
+
+[node name="Grocery store" type="Area2D" parent="Places"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Places/Grocery store"]
+position = Vector2(889, 133.5)
+shape = SubResource("RectangleShape2D_1kqvx")
+
+[node name="Cat" type="Area2D" parent="."]
+script = ExtResource("3_kn5nn")
+
+[node name="Dialogue" parent="Cat" instance=ExtResource("4_4n368")]
+visible = false
+newStory = ExtResource("6_psc8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
+position = Vector2(555, 311)
+shape = SubResource("RectangleShape2D_tbl0k")
+
+[node name="CatFinal" type="Sprite2D" parent="Cat"]
+position = Vector2(562, 354)
+texture = ExtResource("4_cku7i")
+
+[node name="ClickMe" type="Label" parent="Cat"]
+offset_left = 407.0
+offset_top = 236.0
+offset_right = 703.0
+offset_bottom = 261.0
+theme_override_fonts/font = ExtResource("8_6pkfh")
+theme_override_font_sizes/font_size = 25
+text = "Hey! Before you leave..."
+
+[node name="Recipe_Menu" parent="." instance=ExtResource("3_x6cy5")]
+visible = false
+
+[node name="Inventory" parent="." instance=ExtResource("8_f6uab")]
+
+[connection signal="input_event" from="Places/Apartment" to="." method="_on_apartment_input_event"]
+[connection signal="input_event" from="Places/Forest" to="." method="_on_forest_input_event"]
+[connection signal="input_event" from="Places/Sewer" to="." method="_on_sewer_input_event"]
+[connection signal="input_event" from="Places/Grocery store" to="." method="_on_grocery_store_input_event"]
+[connection signal="input_event" from="Cat" to="Cat" method="_on_input_event"]

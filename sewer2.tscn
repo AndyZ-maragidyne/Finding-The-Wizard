@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://fgydbo55gyo5"]
+
+[ext_resource type="Script" path="res://sewer_2.gd" id="1_bymk1"]
+[ext_resource type="Texture2D" uid="uid://d2678me6e1nyg" path="res://ink files/SewerEnviroBg_Better.png" id="2_7bioy"]
+[ext_resource type="PackedScene" uid="uid://bbpcgn46u5fwb" path="res://recipeMenu.tscn" id="3_67ewk"]
+[ext_resource type="Texture2D" uid="uid://k1jfxvajpxyj" path="res://ink files/arrow.png" id="3_dmq0j"]
+[ext_resource type="Script" path="res://fireSpell.gd" id="4_ikig2"]
+[ext_resource type="Texture2D" uid="uid://dq8ktmdrcff3v" path="res://Items/matchbox.png" id="4_kdsh3"]
+[ext_resource type="FontFile" uid="uid://q2fqiyjs0ege" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="5_m4ve1"]
+[ext_resource type="PackedScene" uid="uid://dep6nw86hlrla" path="res://inventory.tscn" id="6_2vr6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qfjc"]
+size = Vector2(63, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2ti5"]
+size = Vector2(53, 58)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bymk1")
+
+[node name="SewerEnviroBgBetter" type="Sprite2D" parent="."]
+position = Vector2(599, 337)
+texture = ExtResource("2_7bioy")
+
+[node name="BackButton" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="BackButton"]
+position = Vector2(621, 612)
+texture = ExtResource("3_dmq0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackButton"]
+position = Vector2(623.5, 615.5)
+shape = SubResource("RectangleShape2D_1qfjc")
+
+[node name="Matchbox" type="Area2D" parent="."]
+position = Vector2(-330, -304)
+script = ExtResource("4_ikig2")
+hellPepper = false
+
+[node name="Label" type="Label" parent="Matchbox"]
+visible = false
+offset_left = 423.0
+offset_top = 594.0
+offset_right = 1074.0
+offset_bottom = 638.0
+theme_override_fonts/font = ExtResource("5_m4ve1")
+theme_override_font_sizes/font_size = 25
+text = "You need a Water Walking Spell to reach this item"
+
+[node name="Icon" type="Sprite2D" parent="Matchbox"]
+position = Vector2(666, 659)
+texture = ExtResource("4_kdsh3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Matchbox"]
+position = Vector2(663, 656)
+shape = SubResource("RectangleShape2D_w2ti5")
+
+[node name="Recipe_Menu" parent="." instance=ExtResource("3_67ewk")]
+visible = false
+
+[node name="Inventory" parent="." instance=ExtResource("6_2vr6l")]
+
+[connection signal="input_event" from="BackButton" to="." method="_on_back_button_input_event"]
+[connection signal="input_event" from="Matchbox" to="Matchbox" method="_on_input_event"]

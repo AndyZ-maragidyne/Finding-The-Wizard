@@ -1,0 +1,2 @@
+{~"I saw the feds over there. You better not have ratted me out!"|"What are you dawdling for? Get looking!"|"I saw the feds over there. You better not have ratted me out!"|"What are you dawdling for? Get looking!"|"I sure hope my brother doesn't show up."}
+* [close]

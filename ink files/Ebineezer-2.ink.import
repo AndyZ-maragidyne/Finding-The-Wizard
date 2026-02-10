@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://confh1vfk8buy"
+path="res://.godot/imported/Ebineezer-2.ink-8d7bd2ac016c35bb0b0075640ad0e20c.res"
+
+[deps]
+
+source_file="res://ink files/Ebineezer-2.ink"
+dest_files=["res://.godot/imported/Ebineezer-2.ink-8d7bd2ac016c35bb0b0075640ad0e20c.res"]
+
+[params]
+
+is_main_file=false
+compress=true

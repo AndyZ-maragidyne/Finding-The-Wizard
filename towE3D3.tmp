@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://j4symv88nf6k"]
+
+[ext_resource type="Script" path="res://town.gd" id="1_73tpn"]
+[ext_resource type="Texture2D" uid="uid://2qo32n1vski8" path="res://icon.svg" id="1_i1gan"]
+[ext_resource type="PackedScene" uid="uid://bbpcgn46u5fwb" path="res://recipeMenu.tscn" id="3_x6cy5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieebj"]
+size = Vector2(220.5, 130.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyjnm"]
+size = Vector2(196.625, 89.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch5wi"]
+size = Vector2(77.25, 64.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kqvx"]
+size = Vector2(220.5, 130.5)
+
+[node name="Town" type="Node2D"]
+script = ExtResource("1_73tpn")
+
+[node name="Apartment" type="Area2D" parent="."]
+
+[node name="Icon2" type="Sprite2D" parent="Apartment"]
+position = Vector2(191, 130)
+scale = Vector2(1.66406, 1)
+texture = ExtResource("1_i1gan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Apartment"]
+position = Vector2(194.75, 130.75)
+shape = SubResource("RectangleShape2D_ieebj")
+
+[node name="Forest" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Forest"]
+position = Vector2(250.5, 539.5)
+scale = Vector2(1.50781, 0.648438)
+texture = ExtResource("1_i1gan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forest"]
+position = Vector2(251.688, 536.625)
+shape = SubResource("RectangleShape2D_qyjnm")
+
+[node name="Sewer" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Sewer"]
+position = Vector2(330, 348.5)
+scale = Vector2(0.53125, 0.492188)
+texture = ExtResource("1_i1gan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sewer"]
+position = Vector2(330.375, 352.125)
+shape = SubResource("RectangleShape2D_ch5wi")
+
+[node name="Grocery store" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Grocery store"]
+position = Vector2(896, 125)
+scale = Vector2(1.875, 0.992188)
+texture = ExtResource("1_i1gan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grocery store"]
+position = Vector2(894, 123)
+shape = SubResource("RectangleShape2D_1kqvx")
+
+[node name="Recipe_Menu" parent="." instance=ExtResource("3_x6cy5")]
+
+[connection signal="input_event" from="Apartment" to="." method="_on_apartment_input_event"]
+[connection signal="input_event" from="Forest" to="." method="_on_forest_input_event"]
+[connection signal="input_event" from="Sewer" to="." method="_on_sewer_input_event"]
+[connection signal="input_event" from="Grocery store" to="." method="_on_grocery_store_input_event"]

@@ -1,0 +1,163 @@
+[gd_scene load_steps=22 format=3 uid="uid://wm6oah58xgkj"]
+
+[ext_resource type="Script" path="res://forest.gd" id="1_xqf0h"]
+[ext_resource type="Texture2D" uid="uid://cw46bp0y74q5v" path="res://ink files/mainForest.png" id="2_ndsqv"]
+[ext_resource type="PackedScene" uid="uid://bbpcgn46u5fwb" path="res://recipeMenu.tscn" id="3_sux8m"]
+[ext_resource type="Texture2D" uid="uid://k1jfxvajpxyj" path="res://ink files/arrow.png" id="3_ug2sf"]
+[ext_resource type="Script" path="res://evidence.gd" id="4_4n02y"]
+[ext_resource type="Texture2D" uid="uid://dtaxtcqxjjhbd" path="res://Items/broken treant branch.png" id="4_laljv"]
+[ext_resource type="Texture2D" uid="uid://bpa02kqqymdfq" path="res://characters/lost fairy.png" id="5_wkmhp"]
+[ext_resource type="Script" path="res://minotaur.gd" id="6_qbiio"]
+[ext_resource type="Texture2D" uid="uid://cnigdv42em5sb" path="res://characters/minotaurSprite_large.png" id="6_t082w"]
+[ext_resource type="Texture2D" uid="uid://lc31w2gk1y3p" path="res://characters/minotaurSprite_large_TRAPPED.png" id="7_7q744"]
+[ext_resource type="FontFile" uid="uid://q2fqiyjs0ege" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="9_e6yrh"]
+[ext_resource type="PackedScene" uid="uid://dep6nw86hlrla" path="res://inventory.tscn" id="9_lillb"]
+[ext_resource type="Script" path="res://trees.gd" id="12_87g3h"]
+[ext_resource type="Texture2D" uid="uid://b4axxuiywplho" path="res://ink files/ForestExtraBit.png" id="15_biaer"]
+[ext_resource type="Script" path="res://last_area.gd" id="15_n240l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re021"]
+size = Vector2(61, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wr48y"]
+size = Vector2(57, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ae5gh"]
+size = Vector2(205, 197)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v3tx"]
+size = Vector2(242, 450)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ik8y"]
+size = Vector2(59.5, 56.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8mt0"]
+size = Vector2(295.75, 376.5)
+
+[node name="forest" type="Node2D"]
+script = ExtResource("1_xqf0h")
+
+[node name="ForestEnviroBg" type="Sprite2D" parent="."]
+position = Vector2(567, 316)
+texture = ExtResource("2_ndsqv")
+
+[node name="BackButton" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="BackButton"]
+position = Vector2(573, 612)
+texture = ExtResource("3_ug2sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackButton"]
+position = Vector2(573.5, 614)
+shape = SubResource("RectangleShape2D_re021")
+
+[node name="Items" type="Node" parent="."]
+
+[node name="BrokenTreantBranch" type="Area2D" parent="Items"]
+position = Vector2(110, -9)
+script = ExtResource("4_4n02y")
+TreantBranch = true
+
+[node name="Icon" type="Sprite2D" parent="Items/BrokenTreantBranch"]
+position = Vector2(574, 468)
+texture = ExtResource("4_laljv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/BrokenTreantBranch"]
+position = Vector2(574.5, 466)
+shape = SubResource("RectangleShape2D_wr48y")
+
+[node name="Item2" type="Area2D" parent="Items"]
+position = Vector2(-94, -331)
+script = ExtResource("4_4n02y")
+Fairy = true
+
+[node name="Icon" type="Sprite2D" parent="Items/Item2"]
+position = Vector2(281, 752)
+texture = ExtResource("5_wkmhp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Item2"]
+position = Vector2(273, 750)
+shape = SubResource("RectangleShape2D_ae5gh")
+
+[node name="Minotaur" type="Area2D" parent="."]
+position = Vector2(887, 401)
+script = ExtResource("6_qbiio")
+
+[node name="Icon1" type="Sprite2D" parent="Minotaur"]
+texture = ExtResource("6_t082w")
+
+[node name="Icon2" type="Sprite2D" parent="Minotaur"]
+visible = false
+position = Vector2(2, 2)
+texture = ExtResource("7_7q744")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minotaur"]
+position = Vector2(-2, -16)
+shape = SubResource("RectangleShape2D_4v3tx")
+
+[node name="Label" type="Label" parent="Minotaur"]
+visible = false
+offset_left = -412.0
+offset_top = -282.0
+offset_right = 531.0
+offset_bottom = -247.0
+theme_override_fonts/font = ExtResource("9_e6yrh")
+theme_override_font_sizes/font_size = 25
+text = "You need an Overgrowth Spell to defeat this enemy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Recipe_Menu" parent="." instance=ExtResource("3_sux8m")]
+visible = false
+
+[node name="Inventory" parent="." instance=ExtResource("9_lillb")]
+
+[node name="LastArea" type="Area2D" parent="."]
+visible = false
+script = ExtResource("15_n240l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LastArea"]
+position = Vector2(614.25, 424.25)
+shape = SubResource("RectangleShape2D_4ik8y")
+
+[node name="Arrow" type="Sprite2D" parent="LastArea"]
+position = Vector2(616, 429)
+rotation = 3.14159
+texture = ExtResource("3_ug2sf")
+
+[node name="Trees" type="Area2D" parent="."]
+script = ExtResource("12_87g3h")
+
+[node name="Icon" type="Sprite2D" parent="Trees"]
+position = Vector2(585, 324)
+texture = ExtResource("15_biaer")
+
+[node name="Collision" type="CollisionShape2D" parent="Trees"]
+position = Vector2(609.125, 243.25)
+shape = SubResource("RectangleShape2D_a8mt0")
+
+[node name="FireballLabel" type="Label" parent="Trees"]
+visible = false
+offset_left = 316.0
+offset_top = 152.0
+offset_right = 912.0
+offset_bottom = 215.0
+theme_override_fonts/font = ExtResource("9_e6yrh")
+theme_override_font_sizes/font_size = 25
+text = "You need a Fire ball spell to clear these trees"
+
+[node name="MinotaurLabel" type="Label" parent="Trees"]
+visible = false
+offset_left = 315.0
+offset_top = 183.0
+offset_right = 957.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("9_e6yrh")
+theme_override_font_sizes/font_size = 25
+text = "A Minotaur is blocking your path, defeat him first"
+
+[connection signal="input_event" from="BackButton" to="." method="_on_back_button_input_event"]
+[connection signal="input_event" from="Items/BrokenTreantBranch" to="Items/BrokenTreantBranch" method="_on_input_event"]
+[connection signal="input_event" from="Items/Item2" to="Items/Item2" method="_on_input_event"]
+[connection signal="input_event" from="Minotaur" to="Minotaur" method="_on_input_event"]
+[connection signal="input_event" from="LastArea" to="LastArea" method="_on_input_event"]
+[connection signal="input_event" from="Trees" to="Trees" method="_on_input_event"]

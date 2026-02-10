@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu5e7tx4dko22"]
+
+[ext_resource type="Script" path="res://DialogueManager.cs" id="1_chcf4"]
+[ext_resource type="Resource" uid="uid://dvafptcyd4812" path="res://ink files/Ebineezer-Outside.ink" id="2_dxdo5"]
+[ext_resource type="Texture2D" uid="uid://djnl751ydnoa5" path="res://bronw.png" id="3_pb3ey"]
+
+[node name="Dialogue" type="Control" node_paths=PackedStringArray("dialogue", "dialogueChoices")]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_chcf4")
+dialogue = NodePath("Text")
+dialogueChoices = NodePath("Choices")
+newStory = ExtResource("2_dxdo5")
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(971, 324)
+scale = Vector2(0.482667, 0.599667)
+texture = ExtResource("3_pb3ey")
+
+[node name="Choices" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 465.0
+offset_right = 1093.0
+offset_bottom = 555.0
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 32.0
+offset_right = 1133.0
+offset_bottom = 394.0
+autowrap_mode = 3
+
+[node name="Manager" type="Node" parent="."]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://bejewvu1rvyhm"
+path="res://.godot/imported/Epilogue-Worst.ink-d22573e9fe63e11f1793ad633d39c222.res"
+
+[deps]
+
+source_file="res://ink files/Epilogue-Worst.ink"
+dest_files=["res://.godot/imported/Epilogue-Worst.ink-d22573e9fe63e11f1793ad633d39c222.res"]
+
+[params]
+
+is_main_file=true
+compress=true

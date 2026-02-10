@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://cq3o5qqby0viq"
+path="res://.godot/imported/questions.ink-989804597f7064445fd6ff38ba5a89a1.res"
+
+[deps]
+
+source_file="res://questions.ink"
+dest_files=["res://.godot/imported/questions.ink-989804597f7064445fd6ff38ba5a89a1.res"]
+
+[params]
+
+is_main_file=false
+compress=true

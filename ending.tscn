@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3 uid="uid://dle6nyx1tacif"]
+
+[ext_resource type="Texture2D" uid="uid://bxkc1px6c13or" path="res://ink files/bacgroundVerThree_BACKUP.png" id="1_l03p8"]
+[ext_resource type="Script" path="res://ending.gd" id="1_tlhtq"]
+[ext_resource type="Texture2D" uid="uid://ba3vsse0g8blh" path="res://ink files/wizard_final.png" id="2_jly0n"]
+[ext_resource type="Script" path="res://DialogueManager.cs" id="4_i2p1w"]
+[ext_resource type="Resource" uid="uid://bejewvu1rvyhm" path="res://ink files/Epilogue-Worst.ink" id="5_rvrm6"]
+[ext_resource type="Resource" uid="uid://ddfe7mduotvu2" path="res://ink files/Epilogue-Neutral.ink" id="6_2q5ba"]
+[ext_resource type="Resource" uid="uid://b8fqa4prx8yvh" path="res://ink files/Epilogue-Best.ink" id="7_atcl5"]
+[ext_resource type="FontFile" uid="uid://q2fqiyjs0ege" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="8_wjshe"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_tlhtq")
+
+[node name="BacgroundVerThreeBackup" type="Sprite2D" parent="."]
+position = Vector2(600, 338)
+texture = ExtResource("1_l03p8")
+
+[node name="WizardFinal" type="Sprite2D" parent="."]
+position = Vector2(349, 374)
+scale = Vector2(1.203, 1.203)
+texture = ExtResource("2_jly0n")
+
+[node name="Bad" type="Control" parent="." node_paths=PackedStringArray("dialogue", "dialogueChoices")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 562.0
+offset_top = 25.0
+offset_right = 1168.0
+offset_bottom = 630.0
+script = ExtResource("4_i2p1w")
+dialogue = NodePath("Text")
+dialogueChoices = NodePath("Choices")
+newStory = ExtResource("5_rvrm6")
+
+[node name="Choices" type="VBoxContainer" parent="Bad"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 389.0
+offset_right = 587.0
+offset_bottom = 610.0
+
+[node name="Text" type="Label" parent="Bad"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 8.0
+offset_right = 590.0
+offset_bottom = 322.0
+autowrap_mode = 3
+
+[node name="Neutral" type="Control" parent="." node_paths=PackedStringArray("dialogue", "dialogueChoices")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 757.0
+offset_top = 14.0
+offset_right = 1172.0
+offset_bottom = 653.0
+script = ExtResource("4_i2p1w")
+dialogue = NodePath("Text")
+dialogueChoices = NodePath("Choices")
+newStory = ExtResource("6_2q5ba")
+
+[node name="Choices" type="VBoxContainer" parent="Neutral"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 352.0
+offset_right = 379.0
+offset_bottom = 612.0
+
+[node name="Text" type="Label" parent="Neutral"]
+layout_mode = 0
+offset_right = 376.0
+offset_bottom = 437.0
+autowrap_mode = 3
+
+[node name="Good" type="Control" parent="." node_paths=PackedStringArray("dialogue", "dialogueChoices")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 757.0
+offset_top = 11.0
+offset_right = 1185.0
+offset_bottom = 656.0
+script = ExtResource("4_i2p1w")
+dialogue = NodePath("Text")
+dialogueChoices = NodePath("Choise")
+newStory = ExtResource("7_atcl5")
+
+[node name="Text" type="Label" parent="Good"]
+layout_mode = 2
+offset_right = 370.0
+offset_bottom = 289.0
+autowrap_mode = 3
+
+[node name="Choise" type="VBoxContainer" parent="Good"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 364.0
+offset_right = 391.0
+offset_bottom = 608.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 984.0
+offset_top = 573.0
+offset_right = 1146.0
+offset_bottom = 644.0
+theme_override_fonts/font = ExtResource("8_wjshe")
+theme_override_font_sizes/font_size = 25
+text = "End Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

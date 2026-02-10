@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://ddfe7mduotvu2"
+path="res://.godot/imported/Epilogue-Neutral.ink-54fa21157274ce8e04a06ae67783e6ca.res"
+
+[deps]
+
+source_file="res://ink files/Epilogue-Neutral.ink"
+dest_files=["res://.godot/imported/Epilogue-Neutral.ink-54fa21157274ce8e04a06ae67783e6ca.res"]
+
+[params]
+
+is_main_file=true
+compress=true

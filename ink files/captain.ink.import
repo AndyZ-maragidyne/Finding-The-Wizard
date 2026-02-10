@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://dypv8u48a3ajx"
+path="res://.godot/imported/captain.ink-d65050418f58aa45be59be339a6b6461.res"
+
+[deps]
+
+source_file="res://ink files/captain.ink"
+dest_files=["res://.godot/imported/captain.ink-d65050418f58aa45be59be339a6b6461.res"]
+
+[params]
+
+is_main_file=false
+compress=true

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbpcgn46u5fwb"]
+
+[ext_resource type="Texture2D" uid="uid://djnl751ydnoa5" path="res://bronw.png" id="1_22fuq"]
+[ext_resource type="FontFile" uid="uid://q2fqiyjs0ege" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="2_vusf8"]
+
+[node name="Recipe_Menu" type="Node2D"]
+visibility_layer = 256
+z_index = 5
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(551, 315.2)
+scale = Vector2(0.581333, 0.534815)
+texture = ExtResource("1_22fuq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 345.0
+offset_top = 104.0
+offset_right = 759.0
+offset_bottom = 353.0
+theme_override_fonts/font = ExtResource("2_vusf8")
+text = "Recipies
+
+Water Elemental + green Goo -> Water walking spell
+
+Mints + Sparkling water -> Ice stasis spell
+
+Bat Wing + Magic weeds -> overgrowth spell
+
+Matchbox + Hellpepper -> Fireball spell"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://byhn6sc3346jg"
+valid=false
+
+[deps]
+
+source_file="res://Items/questions.ink"
+
+[params]
+
+is_main_file=true
+compress=true

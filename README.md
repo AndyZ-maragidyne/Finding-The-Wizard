@@ -1,0 +1,1 @@
+Finding the wizard is a game where the wizard has dissapeared after his casting his spell and since you were his assistant, your punishment is to find him so that he can be put on trial in magical court
